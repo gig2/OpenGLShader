@@ -77,6 +77,7 @@ public:
      */
     virtual void setGeometrySource( std::string const &geometrySource );
 
+    virtual void Load();
 
 
     /// \brief  Just call glUseProgram(shaderID)
@@ -89,7 +90,6 @@ public:
     virtual GLuint GetUniformLocation( std::string const &name ) const;
 
 private:
-    virtual void Load();
     bool BuildShader( GLuint &shader, GLenum type, std::string const &source );
 
     GLuint m_vertexID;
