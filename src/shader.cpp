@@ -205,9 +205,18 @@ void Shader::Load()
         // Delete program and throw an exception
 
         glDeleteProgram( m_programID );
-        glDeleteShader( m_vertexID );
-        glDeleteShader( m_geometryID );
-        glDeleteShader( m_fragmentID );
+        if ( m_vertexIsNeeded )
+        {
+            glDeleteShader( m_vertexID );
+        }
+        if ( m_geometryIsNeeded )
+        {
+            glDeleteShader( m_geometryID );
+        }
+        if ( m_fragmentIsNeeded )
+        {
+            glDeleteShader( m_fragmentID );
+        }
         throw out.str();
     }
     else
