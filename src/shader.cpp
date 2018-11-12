@@ -222,9 +222,18 @@ void Shader::Load()
     else
     {
         // We can remove the shader
-        glDeleteShader( m_vertexID );
-        glDeleteShader( m_geometryID );
-        glDeleteShader( m_fragmentID );
+        if ( m_vertexIsNeeded )
+        {
+            glDeleteShader( m_vertexID );
+        }
+        if ( m_geometryIsNeeded )
+        {
+            glDeleteShader( m_geometryID );
+        }
+        if ( m_fragmentIsNeeded )
+        {
+            glDeleteShader( m_fragmentID );
+        }
     }
 
     isLoaded_ = true;
