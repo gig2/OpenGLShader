@@ -111,7 +111,7 @@ void Shader::setFragmentShader( std::string const &fragmentSource )
 void Shader::setGeometrySource( std::string const &geometrySource )
 {
     m_geometrySource   = geometrySource;
-    m_geometryIsNeeded = geometrySource.empty();
+    m_geometryIsNeeded = !geometrySource.empty();
 }
 
 
