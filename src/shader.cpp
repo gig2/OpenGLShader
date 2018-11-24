@@ -26,11 +26,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #include "shader.h"
 
-#include <array>
-#include <iostream>
 #include <sstream>
 #include <vector>
-
 using namespace S3DE;
 // Constructeurs et Destructeur
 
@@ -149,10 +146,6 @@ void Shader::Load()
         if ( !retF )
         {
             throw std::string{"Error during build fragment shader"};
-        }
-        else
-        {
-            glBindFragDataLocation( m_fragmentID, 0, "out_Color" );
         }
     }
 
@@ -303,7 +296,7 @@ bool Shader::BuildShader( GLuint &shader, GLenum type, std::string const &source
         glGetShaderiv( shader, GL_INFO_LOG_LENGTH, &errorSize );
 
         // Allocation de m?moire
-        std::vector<GLchar> perror;
+        std::vector<char> perror;
         perror.resize( errorSize );
 
         glGetShaderInfoLog( shader, errorSize, &errorSize, perror.data() );
@@ -320,15 +313,7 @@ bool Shader::BuildShader( GLuint &shader, GLenum type, std::string const &source
 
         return false;
     }
+
     else
-    {
-        std::size_t const logSize{512};
-        std::array<GLchar, logSize> log;
-
-        glGetShaderInfoLog( shader, logSize, nullptr, log.data() );
-
-        std::cout << "Shader build log:\n" << log.data() << "\n";
-
         return true;
-    }
 }
