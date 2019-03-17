@@ -239,11 +239,11 @@ void Shader::Load()
     isLoaded_ = true;
 }
 
-void Shader::Enable()
+void Shader::Enable() const
 {
     glUseProgram( m_programID );
 }
-void Shader::Disable()
+void Shader::Disable() const
 {
     glUseProgram( 0 );
 }

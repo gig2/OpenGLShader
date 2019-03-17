@@ -81,9 +81,9 @@ public:
 
 
     /// \brief  Just call glUseProgram(shaderID)
-    virtual void Enable();
+    virtual void Enable() const;
     /// \brief  Just call glUseProgram(0)
-    virtual void Disable();
+    virtual void Disable() const;
     /// \brief Return the location of a uniform variable in the shader
     /// \param  name    the name of the uniform variable
     /// \return the location which is a GLuint
