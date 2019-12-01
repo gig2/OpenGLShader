@@ -1,7 +1,7 @@
 project('OpenGLShader','cpp', default_options : ['cpp_std=c++14'],
        version: '0.0.0')
 
-glew_dep = dependency('glew', required:true)
+epoxy_dep = dependency('epoxy', required:true)
 subdir('src')
 
 # pkgconfig section
