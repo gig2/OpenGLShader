@@ -25,7 +25,8 @@ ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 #pragma once
-#include <epoxy/gl.h>
+// GLEW for all platform
+#include <GL/glew.h>
 
 
 #include <fstream>
